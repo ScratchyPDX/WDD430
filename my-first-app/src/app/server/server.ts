@@ -6,5 +6,5 @@ import { Component } from "@angular/core";
   styleUrls: ["./server.css"],
   standalone: false
 })
-export class ServerComponent {
+export class Server {
 }
