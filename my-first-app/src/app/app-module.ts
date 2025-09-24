@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { App } from './app';
 import { Server } from './server/server';
 import { Servers } from './servers/servers';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { Servers } from './servers/servers';
     Servers
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
