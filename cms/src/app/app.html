@@ -2,8 +2,7 @@
 <div class="container">
   <div class="row">
     <app-contacts *ngIf="loadedFeature === 'contact'"></app-contacts>
+    <app-documents *ngIf="loadedFeature === 'document'"></app-documents>
+    <app-message-list *ngIf="loadedFeature === 'message'"></app-message-list>
   </div>
-</div>
-<div class="row">
-  <app-documents *ngIf="loadedFeature === 'document'"></app-documents>
 </div>
