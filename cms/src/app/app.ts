@@ -9,7 +9,7 @@ import { Component, signal } from '@angular/core';
 export class App {
   protected readonly title = signal('cms');
 
-  loadedFeature = 'contact';
+  loadedFeature = 'document';
 
   onNavigate(feature: string) {
     this.loadedFeature = feature;
