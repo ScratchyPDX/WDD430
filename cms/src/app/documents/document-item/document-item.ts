@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Document } from '../document.model';
 
 @Component({
@@ -8,6 +8,11 @@ import { Document } from '../document.model';
   styleUrl: './document-item.css'
 })
 export class DocumentItem {
+  @Output() documentSelected = new EventEmitter<void>();
   @Input() document: Document
 
+    onSelected() {
+    this.documentSelected.emit();
+    console.log("document-item.ts: onSelected: " + this.document.name);
+  }
 }
