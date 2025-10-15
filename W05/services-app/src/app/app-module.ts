@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { App } from './app';
 import { NewAccount } from './new-account/new-account';
 import { Account } from './account/account';
+import { AccountService } from './account.service';
+import { LoggingService } from './logging.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { Account } from './account/account';
     BrowserModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    AccountService, LoggingService
   ],
   bootstrap: [App]
 })
