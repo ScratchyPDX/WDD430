@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { UserService } from './users.service';
+import { UsersService } from './users.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   standalone: false,
   styleUrl: './app.css',
-  providers: [UserService]
+  providers: [UsersService]
 
 })
 export class App {

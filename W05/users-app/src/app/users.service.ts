@@ -4,7 +4,7 @@ import { CounterService } from './counter.service';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UsersService {
   activeUsers = ['Max', 'Anna'];
   inactiveUsers = ['Chris', 'Manu'];
 
