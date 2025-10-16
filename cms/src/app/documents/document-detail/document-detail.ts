@@ -11,7 +11,6 @@ export class DocumentDetail implements OnInit, AfterViewInit {
   @Input() document: Document;
 
     ngOnInit() {
-    // Use optional chaining in case `document` isn't immediately set to avoid runtime errors
     console.log("document-detail.ts: ngOnInit: " + this.document?.name);
   }
 

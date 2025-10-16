@@ -24,7 +24,6 @@ export class MessageEdit {
     const senderText = this.messageSenderInputRef.nativeElement.value;
     const newMessage = new Message("1", subjectText, messageText, senderText);
     this.messageService.addMessage(newMessage);
-    // this.addMessageEvent.emit(newMessage);
     this.onClear();
   }
 

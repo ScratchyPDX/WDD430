@@ -13,7 +13,6 @@ export class ContactDetail implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
-    // Use optional chaining in case `contact` isn't immediately set to avoid runtime errors
     console.log("contact-detail.ts: ngOnInit: " + this.contact?.name);
   }
 

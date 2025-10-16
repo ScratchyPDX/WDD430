@@ -16,9 +16,7 @@ export class MessageItem implements OnInit {
   constructor(private contactService: ContactService) {}
 
   ngOnInit() {
-    console.log("message-item.ts: ngOnInit: message = " + JSON.stringify(this.message));
     const contact: Contact = this.contactService.getContact(this.message.sender);
-    console.log("message-item.ts: ngOnInit: contact = " + JSON.stringify(contact));
     this.messageSender = contact.name;
   }
 }

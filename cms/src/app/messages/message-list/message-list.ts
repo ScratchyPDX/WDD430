@@ -22,7 +22,6 @@ export class MessageList implements OnInit{
   }
 
 onSelectedMessage(message: Message) {
-    console.log("message-list.ts: onSelectedMessage: " + message.subject);
     this.messageService.messageSelectedEvent.emit(message);
   }
 
