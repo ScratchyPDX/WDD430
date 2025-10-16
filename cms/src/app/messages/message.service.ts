@@ -8,6 +8,7 @@ import { MOCKMESSAGES } from './MOCKMESSAGES';
 export class MessageService {
   messages: Message[] = [];
   messageSelectedEvent = new EventEmitter<Message>();
+  messageChangedEvent = new EventEmitter<Message[]>();
 
   constructor() {
     this.messages = MOCKMESSAGES;
@@ -19,5 +20,11 @@ export class MessageService {
 
   getMessage(id: string): Message {
     return this.messages.find((message) => message.id === id);
+  }
+
+  addMessage(message: Message) {
+    message.sender = "1";
+    this.messages.push(message);
+    this.messageChangedEvent.emit(this.messages.slice());
   }
 }
