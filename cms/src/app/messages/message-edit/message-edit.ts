@@ -12,6 +12,7 @@ export class MessageEdit {
   @Output() addMessageEvent = new EventEmitter<Message>();
   @ViewChild('messageTextInput', {static: false}) messageTextInputRef: ElementRef;
   @ViewChild('subjectInput', {static: false}) subjectInputRef: ElementRef;
+  @ViewChild('messageSenderInput', {static: false}) messageSenderInputRef: ElementRef;
 
   currentSender: string = 'David Ward';
 
@@ -20,7 +21,8 @@ export class MessageEdit {
   onSendMessage() {
     const messageText = this.messageTextInputRef.nativeElement.value;
     const subjectText = this.subjectInputRef.nativeElement.value;
-    const newMessage = new Message("1", this.currentSender, messageText, subjectText);
+    const senderText = this.messageSenderInputRef.nativeElement.value;
+    const newMessage = new Message("1", subjectText, messageText, senderText);
     this.messageService.addMessage(newMessage);
     // this.addMessageEvent.emit(newMessage);
     this.onClear();
