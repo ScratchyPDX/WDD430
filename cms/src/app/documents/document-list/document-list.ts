@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Document } from '../document.model';
+import { DocumentService } from '../document.service';
 
 @Component({
   selector: 'app-document-list',
@@ -7,20 +8,21 @@ import { Document } from '../document.model';
   templateUrl: './document-list.html',
   styleUrl: './document-list.css'
 })
-export class DocumentList {
-  @Output() selectedDocumentEvent = new EventEmitter<Document>();
+export class DocumentList implements OnInit {
 
-  documents: Document[] = [
-    new Document("1", "WDD 430 - Document 1", "WDD 430 - Document 1 description", "../../assets/documents/document-1.txt", []),
-    new Document("2", "WDD 430 - Document 2", "WDD 430 - Document 2 description", "../../assets/documents/document-2.txt", []),
-    new Document("3", "WDD 430 - Document 3", "WDD 430 - Document 3 description", "../../assets/documents/document-3.txt", []),
-    new Document("4", "WDD 430 - Document 4", "WDD 430 - Document 4 description", "../../assets/documents/document-4.txt", []),
-    new Document("5", "WDD 430 - Document 5", "WDD 430 - Document 5 description", "../../assets/documents/document-5.txt", [])
-  ]
+  documents: Document[] = [];
+
+  constructor(private documentService: DocumentService) {
+  }
+
+  ngOnInit(): void {
+    this.documents = this.documentService.getDocuments();
+    console.log("document-list.ts: ngOnInit: " + this.documents.length);
+  }
 
   onSelectedDocument(document: Document) {
     console.log("document-list.ts: onSelectedDocument: " + document.name);
-    this.selectedDocumentEvent.emit(document)
+    this.documentService.documentSelectedEvent.emit(document)
   }
 
 }
