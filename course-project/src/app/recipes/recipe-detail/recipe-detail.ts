@@ -14,7 +14,7 @@ export class RecipeDetail implements OnInit {
   constructor(private recipesService: RecipeService) {}
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
   }
 
   onAddToShoppingList() {
