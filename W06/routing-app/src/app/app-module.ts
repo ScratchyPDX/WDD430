@@ -10,6 +10,8 @@ import { EditServer } from './servers/edit-server/edit-server';
 import { Server } from './servers/server/server';
 import { FormsModule } from '@angular/forms';
 import { User } from './users/user/user';
+import { PageNotFound } from './page-not-found/page-not-found';
+import { ErrorPage } from './error-page/error-page';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { User } from './users/user/user';
     Servers,
     User,
     EditServer,
-    Server
+    Server,
+    PageNotFound,
+    ErrorPage
   ],
   imports: [
     BrowserModule,
