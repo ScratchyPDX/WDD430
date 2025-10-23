@@ -4,13 +4,16 @@ import { Recipes } from './recipes/recipes';
 import { ShoppingList } from './shopping-list/shopping-list';
 import { RecipesStart } from './recipes/recipes-start/recipes-start';
 import { RecipeDetail } from './recipes/recipe-detail/recipe-detail';
+import { RecipeEdit } from './recipes/recipe-edit/recipe-edit';
 
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   { path: 'recipes', component: Recipes, children: [
     { path: '', component: RecipesStart },
-    { path: ':id', component: RecipeDetail }
+    { path: 'new', component: RecipeEdit },
+    { path: ':id', component: RecipeDetail },
+    { path: ':id/edit', component: RecipeEdit}
   ]},
   { path: 'shopping-list', component: ShoppingList }
 ];
