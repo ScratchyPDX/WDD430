@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Document } from '../document.model';
 import { DocumentService } from '../document.service';
+import { WindowRef } from '../../window-ref';
 
 @Component({
   selector: 'app-document-detail',
@@ -11,14 +12,17 @@ import { DocumentService } from '../document.service';
 })
 export class DocumentDetail implements OnInit, AfterViewInit {
   document: Document;
+  nativeWindow: any;
 
   constructor(
     private documentService: DocumentService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private windowRef: WindowRef
   ) {}
 
   ngOnInit() {
+    this.nativeWindow = this.windowRef.getNativeWindow();
     this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
@@ -32,6 +36,12 @@ export class DocumentDetail implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
 
+  }
+
+  onView() {
+    if (this.document.url) {
+      this.nativeWindow.open(this.document.url);
+    }
   }
 
 }
