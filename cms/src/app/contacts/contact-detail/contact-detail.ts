@@ -22,27 +22,10 @@ export class ContactDetail implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     console.log("ContactDetail ngOnInit called");
-    try {
-      this.routeSubscription = this.route.params.subscribe(params => {
-        console.log("Route params received:", params);
-        const id = params['id'];
-        console.log("Contact ID from route:", id);
-        if (id) {
-          this.contact = this.contactService.getContact(id);
-          console.log("Contact fetched from service:", this.contact);
-          if (this.contact) {
-            console.log("contact-detail.ts: ngOnInit: " + this.contact.name);
-          } else {
-            console.error("Contact not found with id: " + id);
-            console.log("Contact not found - staying on current route for debugging");
-          }
-        } else {
-          console.error("No contact ID provided in route");
-        }
-      });
-    } catch (error) {
-      console.error("Error in ContactDetail ngOnInit:", error);
-    }
+    this.routeSubscription = this.route.params.subscribe(params => {
+      const id = params['id'];
+        this.contact = this.contactService.getContact(id);
+    });
   }
 
    ngAfterViewInit(): void {
