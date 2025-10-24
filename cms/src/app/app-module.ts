@@ -16,6 +16,8 @@ import { MessageEdit } from './messages/message-edit/message-edit';
 import { MessageList } from './messages/message-list/message-list';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { MessageService } from './messages/message.service';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { MessageService } from './messages/message.service';
     DropdownDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
