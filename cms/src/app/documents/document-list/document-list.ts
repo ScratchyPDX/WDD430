@@ -19,10 +19,4 @@ export class DocumentList implements OnInit {
     this.documents = this.documentService.getDocuments();
     console.log("document-list.ts: ngOnInit: " + this.documents.length);
   }
-
-  onSelectedDocument(document: Document) {
-    console.log("document-list.ts: onSelectedDocument: " + document.name);
-    this.documentService.documentSelectedEvent.emit(document)
-  }
-
 }

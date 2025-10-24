@@ -8,7 +8,7 @@
   <div class="panel-body">
     <div class="center-panel">
       @for(documentEl of documents; track $index) {
-        <app-document-item [document]="documentEl" (documentSelected)="onSelectedDocument(documentEl)"></app-document-item>
+        <app-document-item [document]="documentEl"></app-document-item>
       }
     </div>
   </div>
