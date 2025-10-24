@@ -44,4 +44,9 @@ export class DocumentDetail implements OnInit, AfterViewInit {
     }
   }
 
+  onDelete() {
+    this.documentService.deleteDocument(this.document);
+    this.router.navigate(['/documents']);
+  }
+  
 }

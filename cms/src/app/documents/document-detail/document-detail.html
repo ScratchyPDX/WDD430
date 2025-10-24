@@ -6,7 +6,7 @@
         <div class="row pull-right margin-left-right">
           <a class="btn btn-primary" type="button" (click)="onView()">View</a>
           <a class="btn btn-info" type="button" [routerLink]="['/documents', id, 'edit']">Edit</a>
-          <a class="btn btn-danger" type="button">Delete</a>
+          <a class="btn btn-danger" type="button" (click)="onDelete()">Delete</a>
         </div>
       </div>
     </div>

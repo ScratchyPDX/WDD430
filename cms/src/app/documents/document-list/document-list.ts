@@ -18,5 +18,10 @@ export class DocumentList implements OnInit {
   ngOnInit(): void {
     this.documents = this.documentService.getDocuments();
     console.log("document-list.ts: ngOnInit: " + this.documents.length);
+    this.documentService.documentChangedEvent.subscribe(
+      (documents: Document[]) => {
+        this.documents = documents;
+      }
+    );
   }
 }
