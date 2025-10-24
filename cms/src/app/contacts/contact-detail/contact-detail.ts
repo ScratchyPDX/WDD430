@@ -39,4 +39,8 @@ export class ContactDetail implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  onDelete() {
+    this.contactService.deleteContact(this.contact);
+    this.router.navigateByUrl('/contacts');
+  }
 }
