@@ -19,6 +19,7 @@ import { MessageService } from './messages/message.service';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { DocumentEdit } from './documents/document-edit/document-edit';
+import { ContactEdit } from './contacts/contact-edit/contact-edit';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DocumentEdit } from './documents/document-edit/document-edit';
     MessageEdit,
     MessageList,
     DropdownDirective,
-    DocumentEdit
+    DocumentEdit,
+    ContactEdit
   ],
   imports: [
     BrowserModule,

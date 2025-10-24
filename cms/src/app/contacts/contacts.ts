@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from './contact/contact.model';
 import { ContactService } from './contact.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contacts',
@@ -11,17 +12,15 @@ import { ContactService } from './contact.service';
 export class Contacts implements OnInit {
   selectedContact: Contact;
 
-  constructor(private contactService: ContactService) {}
+  constructor(private contactService: ContactService, private router: Router) {}
 
   ngOnInit(): void {
     this.contactService.contactSelectedEvent.subscribe(
       (contact: Contact) => {
         this.selectedContact = contact;
+        this.router.navigate(['/contacts', contact.id]);
       }
     );
   }
 
-  onContactSelected(contact: Contact) {
-    this.contactService.contactSelectedEvent.emit(contact);
-  }
 }
