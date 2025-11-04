@@ -12,9 +12,10 @@ import { ShoppingEdit } from './shopping-list/shopping-edit/shopping-edit';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipesStart } from './recipes/recipes-start/recipes-start';
 import { RecipeEdit } from './recipes/recipe-edit/recipe-edit';
+import { RecipeService } from './recipes/recipe.service';
 
 @NgModule({
   declarations: [
@@ -33,11 +34,13 @@ import { RecipeEdit } from './recipes/recipe-edit/recipe-edit';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    ShoppingListService
+    ShoppingListService,
+    RecipeService
   ],
   bootstrap: [App]
 })

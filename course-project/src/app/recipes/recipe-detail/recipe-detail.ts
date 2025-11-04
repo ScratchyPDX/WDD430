@@ -32,8 +32,7 @@ export class RecipeDetail implements OnInit {
   }
 
   onDeleteRecipe() {
-    throw('Not implemented yet');
-    // this.recipesService.deleteRecipe(this.id);
-    // this.router.navigate(['/recipes']);
+    this.recipesService.deleteRecipe(this.id);
+    this.router.navigate(['/recipes']);
   }
 }
