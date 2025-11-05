@@ -82,40 +82,57 @@
       <div class="row" *ngIf="(name.invalid && (name.dirty || name.touched)) || (email.invalid && (email.dirty || email.touched))">
         <div class="col-sm-12">
           <div class="div alert alert-danger">
-            <div>
-                The Name and Email are required.
-            </div>
+            <div>The Name and Email are required.</div>
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="form-group">
+        <div class="col-sm-12">
           <label for="groupList">Group Contacts:</label>
 
-          <div class="row" id="groupList"
-              style="min-height: 3rem;" >
-
-            <div *ngFor="let contact of groupContacts; let i = index">
-              <div>
-                <cms-contact-item class="col-sm-11" [contact]="contact"></cms-contact-item>
-                <button class="btn btn-danger col-sm-2 deleteButton" (click)="onRemoveItem(i)">X</button>
+          <div class="row">
+            <div class="col-sm-8">
+              <select class="form-control" [(ngModel)]="selectedContactId" name="selectedContact" title="Select a contact to add to the group">
+                <option value="">Select a contact to add...</option>
+                <option *ngFor="let contact of availableContacts" [value]="contact.id">
+                  {{ contact.name }} ({{ contact.email }})
+                </option>
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <button type="button" class="btn btn-primary" (click)="onAddContactToGroup()" [disabled]="!selectedContactId">
+                Add Contact
+              </button>
+            </div>
+          </div>
+          <hr>
+          <div class="row" id="groupList">
+            <div *ngFor="let contact of groupContacts; let i = index" class="col-sm-12">
+              <div class="row">
+                <div class="col-sm-10">
+                  <strong>{{ contact.name }}</strong> - {{ contact.email }}
+                </div>
+                <div class="col-sm-2">
+                  <button type="button" class="btn btn-danger" (click)="onRemoveContactFromGroup(i)">X</button>
+                </div>
               </div>
             </div>
-            <span class="dragMsg" *ngIf="groupContacts?.length < 1">Drag contacts in group here</span>
+            <div *ngIf="groupContacts?.length === 0" class="col-sm-12">
+              No contacts added to group yet.
+            </div>
           </div>
-
         </div>
       </div>
-
 
       <div class="row">
         <div class="col-xs-12 btn-toolbar">
-          <button class="btn btn-success" type="submit" [disabled]="!contactForm.valid">Save</button>
+          <button class="btn btn-success" type="submit" [disabled]="!contactForm.valid">
+            Save
+          </button>
           <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
         </div>
       </div>
-
     </form>
   </div>
 </div>
