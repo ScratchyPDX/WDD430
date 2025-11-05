@@ -43,7 +43,7 @@ export class ContactEdit implements OnInit{
     const groupContactIds = this.groupContacts.map(c => c.id);
 
     this.availableContacts = allContacts.filter((contact) => {
-      !groupContactIds.includes(contact.id) && contact.id !== this.contact.id
+      return !groupContactIds.includes(contact.id) && contact.id !== this.contact.id;
     });
   }
 
