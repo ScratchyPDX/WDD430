@@ -1,0 +1,45 @@
+
+/* Only show red border for invalid
+   fields that have been touched or
+   dirty
+*/
+.required.ng-invalid.ng-touched,
+.required.ng-invalid.ng-dirty {
+  border: 1px solid red;
+}
+
+/* Remove the red border for untouched or
+   pristine invalid fields
+*/
+.required.ng-invalid.ng-untouched.ng-pristine {
+  border: 1px solid #ccc;
+}
+
+.invalid.ng-invalid.ng-dirty {
+  border: 1px solid red;
+}
+
+.pad-left-right{
+  padding-left:.1rem;
+}
+
+.deleteButton {
+  margin-top: 1.5rem;
+  margin-left: -1.2rem;
+  width: 3.4rem;
+}
+
+.buttonDiv {
+  margin-top: 1.5rem;
+}
+
+.groupDiv {
+  min-height: 6rem;
+  border: solid thin lightgrey;
+}
+
+.dragMsg {
+  font-size: 2rem;
+  color: darkgrey;
+  margin-left: 3rem;
+}
