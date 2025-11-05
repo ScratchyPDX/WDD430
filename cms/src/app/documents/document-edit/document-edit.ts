@@ -14,7 +14,7 @@ export class DocumentEdit implements OnInit {
 
   @ViewChild('f') signupForm: NgForm;
   originalDocument: Document;
-  document: Document;
+  document: Document = {id: '', name: '', description: '', url: '', children: []};
   editMode: boolean = false;
 
   constructor(private documentService: DocumentService, private router: Router, private route: ActivatedRoute) { }
@@ -37,10 +37,11 @@ export class DocumentEdit implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log("onSubmit called");
-    const newDocument = new Document('', form.value.name, form.value.description, form.value.url, []);
+    console.log("onSubmit called: document =", this.document);
+    const newDocument = new Document(this.document.id, this.document.name, this.document.description, this.document.url, []);
     console.log(newDocument);
     if (this.editMode) {
+      // newDocument.id = this.originalDocument.id;
       this.documentService.updateDocument(this.originalDocument, newDocument);
     } else {
       this.documentService.addDocument(newDocument);
