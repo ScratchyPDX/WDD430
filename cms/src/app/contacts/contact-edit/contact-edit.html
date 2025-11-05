@@ -50,7 +50,7 @@
             class="form-control invalid"
             size="150"
             max="255"
-            [ngModel]="contact.phone"
+            [(ngModel)]="contact.phone"
             #phone="ngModel"
             name="phone"
             pattern="\D*([2-9]\d{2})(\D*)([2-9]\d{2})(\D*)(\d{4})\D*">
@@ -73,7 +73,7 @@
             class="form-control"
             size="150"
             max="255"
-            [ngModel]="contact.imageUrl"
+            [(ngModel)]="contact.imageUrl"
             #imageUrl="ngModel"
             name="imageUrl">
         </div>
