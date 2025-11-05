@@ -34,16 +34,7 @@ export class ContactEdit implements OnInit{
       if (this.contact.group) {
         this.groupContacts = [...this.contact.group];
       }
-      this.updateAvailableContacts();
-    });
-  }
-
-  updateAvailableContacts() {
-    const allContacts = this.contactService.getContacts();
-    const groupContactIds = this.groupContacts.map(c => c.id);
-
-    this.availableContacts = allContacts.filter((contact) => {
-      return !groupContactIds.includes(contact.id) && contact.id !== this.contact.id;
+      this.updateAvailableGroupContacts();
     });
   }
 
@@ -61,6 +52,15 @@ export class ContactEdit implements OnInit{
     this.router.navigate(['/contacts']);
   }
 
+  updateAvailableGroupContacts() {
+    const allContacts = this.contactService.getContacts();
+    const groupContactIds = this.groupContacts.map(c => c.id);
+
+    this.availableContacts = allContacts.filter((contact) => {
+      return !groupContactIds.includes(contact.id) && contact.id !== this.contact.id;
+    });
+  }
+
   onAddContactToGroup() {
     if (!this.selectedContactId) {
       return;
@@ -69,15 +69,15 @@ export class ContactEdit implements OnInit{
     const contactToAdd = this.contactService.getContact(this.selectedContactId);
     if (contactToAdd && !this.groupContacts.find(c => c.id === contactToAdd.id)) {
       this.groupContacts.push(contactToAdd);
-      this.selectedContactId = ''; // Reset selection
-      this.updateAvailableContacts(); // Update available list
+      this.selectedContactId = ''; // reset selection
+      this.updateAvailableGroupContacts(); // update available list
     }
   }
 
   onRemoveContactFromGroup(index: number) {
     if (index >= 0 && index < this.groupContacts.length) {
       this.groupContacts.splice(index, 1);
-      this.updateAvailableContacts(); // Update available list
+      this.updateAvailableGroupContacts(); // update available list
     }
   }
 
