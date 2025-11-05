@@ -53,9 +53,11 @@ export class ContactEdit implements OnInit{
   }
 
   updateAvailableGroupContacts() {
+    // get all contacts and the IDs of the current group members
     const allContacts = this.contactService.getContacts();
+    // get the IDs of the current group members
     const groupContactIds = this.groupContacts.map(c => c.id);
-
+    // filter out contacts already in the group or the contact being edited
     this.availableContacts = allContacts.filter((contact) => {
       return !groupContactIds.includes(contact.id) && contact.id !== this.contact.id;
     });
