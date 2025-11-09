@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipesStart } from './recipes/recipes-start/recipes-start';
 import { RecipeEdit } from './recipes/recipe-edit/recipe-edit';
 import { RecipeService } from './recipes/recipe.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { RecipeService } from './recipes/recipe.service';
   providers: [
     provideBrowserGlobalErrorListeners(),
     ShoppingListService,
-    RecipeService
+    RecipeService,
+    provideHttpClient(withInterceptorsFromDi()),
   ],
   bootstrap: [App]
 })
