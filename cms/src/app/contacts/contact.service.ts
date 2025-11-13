@@ -30,7 +30,13 @@ export class ContactService {
   }
 
   getContact(id: string): Contact {
-    return this.contacts.find((contact) => contact.id === id);
+    console.log('getContact: looking for contacts.length:', this.contacts.length);
+    if(this.contacts.length === 0) {
+      this.getContacts();
+    }
+    const contact =  this.contacts.find((contact) => contact.id === id);
+    console.log('getContact: found contact:', contact);
+    return contact;
   }
 
   getMaxId(): number {
