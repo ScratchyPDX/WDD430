@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { DocumentEdit } from './documents/document-edit/document-edit';
 import { ContactEdit } from './contacts/contact-edit/contact-edit';
 import { ContactsFilterPipe } from './contacts/contacts-filter-pipe';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ContactsFilterPipe } from './contacts/contacts-filter-pipe';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    MessageService
+    MessageService,
+    provideHttpClient(withInterceptorsFromDi())
   ],
   bootstrap: [App]
 })
