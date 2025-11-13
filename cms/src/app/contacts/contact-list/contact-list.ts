@@ -30,7 +30,6 @@ export class ContactList implements OnInit, OnDestroy {
   }
 
   onContactSelected(contact: Contact) {
-    console.log("contact-list.ts: onContactSelected: " + contact.name);
     this.contactService.contactSelectedEvent.emit(contact);
   }
 
