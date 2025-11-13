@@ -16,11 +16,20 @@ export class MessageItem implements OnInit {
   constructor(private contactService: ContactService) {}
 
   ngOnInit() {
-    this.contactService.getContacts();
-    console.log('MessageItem initialized with message:', this.message);
-    console.log('Fetching sender contact with ID:', this.message.sender);
+    // try to get the contact immediately
     const contact: Contact = this.contactService.getContact(this.message.sender);
-    console.log('Current contact:', contact);
-    this.messageSender = contact.name;
+    if (contact) {
+      this.messageSender = contact.name;
+    } else {
+      // if contact not found, wait for contacts to load
+      this.contactService.contactChangedEvent.subscribe(
+        (contacts: Contact[]) => {
+          const loadedContact = contacts.find(c => c.id === this.message.sender);
+          if (loadedContact) {
+            this.messageSender = loadedContact.name;
+          }
+        }
+      );
+    }
   }
 }
