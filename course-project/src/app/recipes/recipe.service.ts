@@ -25,7 +25,7 @@ export class RecipeService {
   //   )
   // ];
 
-  private recipes: Recipe[] = [new Recipe('', '', '', [])];
+  private recipes: Recipe[] = [];
 
   constructor(private shoppingListService: ShoppingListService) { }
 
