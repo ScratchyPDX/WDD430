@@ -1,0 +1,78 @@
+.admin-orders {
+  padding: 2rem;
+}
+
+.loading, .error, .no-orders {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+.orders-list {
+  display: grid;
+  gap: 2rem;
+}
+
+.order-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+}
+
+.order-date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.order-customer {
+  margin-bottom: 1rem;
+}
+
+.order-customer p {
+  margin: 0.3rem 0;
+}
+
+.order-items {
+  margin: 1rem 0;
+}
+
+.order-items ul {
+  list-style: none;
+  padding: 0;
+}
+
+.order-items li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.order-total {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #eee;
+  text-align: right;
+}
+
+.order-total p {
+  margin: 0.3rem 0;
+}
+
+.order-total .total {
+  font-size: 1.2rem;
+  color: #2c3e50;
+}

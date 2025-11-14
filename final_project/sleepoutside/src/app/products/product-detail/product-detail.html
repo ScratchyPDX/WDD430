@@ -1,0 +1,31 @@
+<div *ngIf="loading" class="loading">Loading product details...</div>
+
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<section class="product-detail" *ngIf="product && !loading && !error">
+  <h3>{{ product.Brand.Name }}</h3>
+  <h2 class="divider">{{ product.NameWithoutBrand }}</h2>
+
+  <img class="divider" [src]="product.Images.PrimaryLarge" alt="{{ product.Name }}" />
+
+  <p class="product-card__price" [class.discount]="getDiscount() > 0">
+    ${{ product.FinalPrice }}
+  </p>
+
+  <p class="product__discount" *ngIf="getDiscount() > 0">
+    <span class="original-price">${{ product.SuggestedRetailPrice }}</span>
+    Save {{ getDiscount() }}%
+  </p>
+
+  <p class="product__color" *ngIf="product.Colors && product.Colors.length > 0">
+    {{ product.Colors[0].ColorName }}
+  </p>
+
+  <p class="product__description" [innerHTML]="product.DescriptionHtmlSimple"></p>
+
+  <div class="product-detail__add">
+    <button id="addToCart" (click)="addToCart()" [attr.data-id]="product.Id">
+      Add to Cart
+    </button>
+  </div>
+</section>

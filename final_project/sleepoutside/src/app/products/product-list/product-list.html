@@ -1,0 +1,22 @@
+<div class="products">
+  <div class="sort-buttons">
+    <h2 id="product-category">Top Products: {{ getCategoryTitle() }}</h2>
+    <button (click)="sortByName()">Sort by Name</button>
+    <button (click)="sortByPrice()">Sort by Price</button>
+  </div>
+
+  <div *ngIf="loading" class="loading">Loading products...</div>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <ul class="product-list" *ngIf="!loading && !error">
+    <li class="product-card" *ngFor="let product of products">
+      <a [routerLink]="['/product', product.Id]">
+        <img [src]="product.Images.PrimaryMedium" alt="{{ product.Name }}" />
+        <h3 class="card__brand">{{ product.Brand.Name }}</h3>
+        <h2 class="card__name">{{ product.NameWithoutBrand }}</h2>
+        <p class="product-card__price">${{ product.FinalPrice }}</p>
+      </a>
+    </li>
+  </ul>
+</div>

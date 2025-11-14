@@ -1,0 +1,62 @@
+<div class="hero">
+  <picture>
+    <source srcset="assets/images/banner.jpg" media="(min-width: 500px)" />
+    <img src="assets/images/banner-sm.jpg" alt="image of a high mountain lake" />
+  </picture>
+  <div class="logo logo--square">
+    <img src="assets/images/logos/noun_Tent_2517.svg" alt="tent image for logo" />
+    <div>Sleep<span class="highlight">Outside</span></div>
+  </div>
+</div>
+
+<section class="mission">
+  <p>We spend too much time these days indoors...sitting usually.</p>
+  <p>No wonder we are a mess!</p>
+  <p>
+    What we really need is to get outside...in fact SLEEP outside. Our
+    mission is to provide you with everything you need to do this
+    comfortably at an affordable price.
+  </p>
+</section>
+
+<section class="products">
+  <h2>Top Products</h2>
+  <div class="product-search">
+    <input
+      type="text"
+      placeholder="Search products..."
+      #searchInput
+      (input)="onSearchChange(searchInput.value)"
+      class="search-input" />
+  </div>
+  <ul class="product-categories">
+    <li>
+      <a routerLink="/products/tents" class="category-card">
+        <img src="assets/images/tents/marmot-ajax-tent-3-person-3-season-in-pale-pumpkin-terracotta~p~880rr_01~320.jpg" alt="Tents category" />
+        <h3>Tents</h3>
+        <p>Explore our selection of quality tents</p>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/products/backpacks" class="category-card">
+        <img src="assets/images/noun_Backpack_65884.svg" alt="Backpacks category" />
+        <h3>Backpacks</h3>
+        <p>Find the perfect backpack for your adventure</p>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/products/sleeping-bags" class="category-card">
+        <img src="assets/images/banner-sm.jpg" alt="Sleeping Bags category" />
+        <h3>Sleeping Bags</h3>
+        <p>Stay warm and comfortable</p>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/products/hammocks" class="category-card">
+        <img src="assets/images/noun_Tent_2517.svg" alt="Hammocks category" />
+        <h3>Hammocks</h3>
+        <p>Relax in style</p>
+      </a>
+    </li>
+  </ul>
+</section>

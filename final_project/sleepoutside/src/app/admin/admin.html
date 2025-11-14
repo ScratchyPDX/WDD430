@@ -1,0 +1,41 @@
+<section class="admin-orders">
+  <h2>Order Management</h2>
+
+  <div *ngIf="loading" class="loading">Loading orders...</div>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="!loading && !error && orders.length === 0" class="no-orders">
+    <p>No orders found.</p>
+  </div>
+
+  <div class="orders-list" *ngIf="!loading && !error && orders.length > 0">
+    <div class="order-card" *ngFor="let order of orders">
+      <div class="order-header">
+        <h3>Order #{{ order.id }}</h3>
+        <span class="order-date">{{ formatDate(order.orderDate) }}</span>
+      </div>
+
+      <div class="order-customer">
+        <p><strong>Customer:</strong> {{ order.fname }} {{ order.lname }}</p>
+        <p><strong>Address:</strong> {{ order.street }}, {{ order.city }}, {{ order.state }} {{ order.zip }}</p>
+      </div>
+
+      <div class="order-items">
+        <h4>Items:</h4>
+        <ul>
+          <li *ngFor="let item of order.items">
+            {{ item.Name }} - Qty: {{ item.Quantity }} - ${{ (item.FinalPrice * item.Quantity).toFixed(2) }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="order-total">
+        <p>Subtotal: ${{ (order.orderTotal - order.shipping - order.tax).toFixed(2) }}</p>
+        <p>Shipping: ${{ order.shipping.toFixed(2) }}</p>
+        <p>Tax: ${{ order.tax.toFixed(2) }}</p>
+        <p class="total"><strong>Total: ${{ order.orderTotal.toFixed(2) }}</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
