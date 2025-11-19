@@ -18,7 +18,8 @@ export class PostCreate {
     if (form.invalid) {
       return;
     }
-    this.postsService.addPost(form.value.title, form.value.content);
+    const id = Math.random().toString();
+    this.postsService.addPost(id, form.value.title, form.value.content);
     form.resetForm();
   }
 
