@@ -1,0 +1,142 @@
+<section class="checkout-summary">
+  <h2>Order Summary</h2>
+  <ul>
+    <li *ngFor="let item of cartItems">
+      <span>{{ item.Name }} (x{{ item.Quantity }})</span>
+      <span>${{ (item.FinalPrice * item.Quantity).toFixed(2) }}</span>
+    </li>
+  </ul>
+  <p>Subtotal: ${{ itemTotal.toFixed(2) }}</p>
+  <p>Shipping: ${{ shipping.toFixed(2) }}</p>
+  <p>Tax: ${{ tax.toFixed(2) }}</p>
+  <p class="order-total"><strong>Total: ${{ orderTotal.toFixed(2) }}</strong></p>
+</section>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <fieldset class="checkout-form">
+    <legend>Shipping Information</legend>
+
+    <label for="fname">
+      First Name <span class="required">*</span>
+      <input
+        id="fname"
+        type="text"
+        formControlName="fname"
+        required
+        [class.invalid]="checkoutForm.get('fname')?.invalid && checkoutForm.get('fname')?.touched"
+      />
+    </label>
+
+    <label for="lname">
+      Last Name <span class="required">*</span>
+      <input
+        id="lname"
+        type="text"
+        formControlName="lname"
+        required
+        [class.invalid]="checkoutForm.get('lname')?.invalid && checkoutForm.get('lname')?.touched"
+      />
+    </label>
+
+    <label for="street">
+      Street <span class="required">*</span>
+      <input
+        id="street"
+        type="text"
+        formControlName="street"
+        required
+        [class.invalid]="checkoutForm.get('street')?.invalid && checkoutForm.get('street')?.touched"
+      />
+    </label>
+
+    <label for="city">
+      City <span class="required">*</span>
+      <input
+        id="city"
+        type="text"
+        formControlName="city"
+        required
+        [class.invalid]="checkoutForm.get('city')?.invalid && checkoutForm.get('city')?.touched"
+      />
+    </label>
+
+    <label for="state">
+      State <span class="required">*</span>
+      <input
+        id="state"
+        type="text"
+        formControlName="state"
+        required
+        [class.invalid]="checkoutForm.get('state')?.invalid && checkoutForm.get('state')?.touched"
+      />
+    </label>
+
+    <label for="zip">
+      Zip <span class="required">*</span>
+      <input
+        id="zip"
+        type="text"
+        formControlName="zip"
+        placeholder="12345"
+        required
+        [class.invalid]="checkoutForm.get('zip')?.invalid && checkoutForm.get('zip')?.touched"
+      />
+      <span class="error" *ngIf="checkoutForm.get('zip')?.invalid && checkoutForm.get('zip')?.touched">
+        Must be 5 digits
+      </span>
+    </label>
+  </fieldset>
+
+  <fieldset class="checkout-form">
+    <legend>Payment Information</legend>
+
+    <label for="cardNumber">
+      Card Number <span class="required">*</span>
+      <input
+        id="cardNumber"
+        type="text"
+        formControlName="cardNumber"
+        placeholder="1234567890123456"
+        required
+        [class.invalid]="checkoutForm.get('cardNumber')?.invalid && checkoutForm.get('cardNumber')?.touched"
+      />
+      <span class="error" *ngIf="checkoutForm.get('cardNumber')?.invalid && checkoutForm.get('cardNumber')?.touched">
+        Must be 16 digits
+      </span>
+    </label>
+
+    <label for="expiration">
+      Expiration <span class="required">*</span>
+      <input
+        id="expiration"
+        type="text"
+        formControlName="expiration"
+        placeholder="MM/YY"
+        required
+        [class.invalid]="checkoutForm.get('expiration')?.invalid && checkoutForm.get('expiration')?.touched"
+      />
+      <span class="error" *ngIf="checkoutForm.get('expiration')?.invalid && checkoutForm.get('expiration')?.touched">
+        Must be MM/YY format
+      </span>
+    </label>
+
+    <label for="code">
+      Security Code <span class="required">*</span>
+      <input
+        id="code"
+        type="text"
+        formControlName="code"
+        placeholder="123"
+        required
+        [class.invalid]="checkoutForm.get('code')?.invalid && checkoutForm.get('code')?.touched"
+      />
+      <span class="error" *ngIf="checkoutForm.get('code')?.invalid && checkoutForm.get('code')?.touched">
+        Must be 3 digits
+      </span>
+    </label>
+  </fieldset>
+
+  <button type="submit" [disabled]="!checkoutForm.valid">
+    {{ submitting ? 'Processing...' : 'Complete Order' }}
+  </button>
+</form>

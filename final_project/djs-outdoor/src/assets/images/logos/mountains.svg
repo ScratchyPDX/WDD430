@@ -1,0 +1,39 @@
+<svg
+  role="img"
+  aria-label="Mountain peaks icon"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 160 100"
+>
+  <!-- Style: change colors here -->
+  <style>
+    .base { fill: #111; }
+    .cap  { fill: #fff; }
+  </style>
+
+  <!-- Left peak -->
+  <g>
+    <!-- Mountain base -->
+    <path class="base" d="M10 88 L45 30 L75 88 Z"/>
+    <!-- Snowcap -->
+    <path class="cap" d="M45 30 L36 45 L42 43 L45 48 L48 43 L54 45 Z"/>
+  </g>
+
+  <!-- Center (tallest) peak -->
+  <g>
+    <!-- Mountain base -->
+    <path class="base" d="M45 88 L85 12 L125 88 Z"/>
+    <!-- Snowcap -->
+    <path class="cap" d="M85 12 L74 34 L81 31 L85 38 L89 31 L96 34 Z"/>
+  </g>
+
+  <!-- Right peak -->
+  <g>
+    <!-- Mountain base -->
+    <path class="base" d="M95 88 L120 35 L150 88 Z"/>
+    <!-- Snowcap -->
+    <path class="cap" d="M120 35 L112 49 L117 47 L120 52 L123 47 L128 49 Z"/>
+  </g>
+
+  <!-- Ground line for visual balance -->
+  <rect x="10" y="88" width="140" height="2" fill="#111"/>
+</svg>

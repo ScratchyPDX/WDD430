@@ -1,0 +1,21 @@
+<header class="divider">
+  <div class="logo">
+    <a routerLink="/">
+      <img src="assets/images/logos/mountains.svg" alt="Mountain peaks icon"/>
+
+      DJS<span class="highlight">Outdoor</span>
+    </a>
+  </div>
+  <nav class="main-nav">
+    <a routerLink="/products/tents" routerLinkActive="active">Tents</a>
+    <a routerLink="/products/backpacks" routerLinkActive="active">Backpacks</a>
+    <a routerLink="/products/sleeping-bags" routerLinkActive="active">Sleeping Bags</a>
+    <a routerLink="/products/hammocks" routerLinkActive="active">Hammocks</a>
+  </nav>
+  <div class="cart">
+    <a routerLink="/cart">
+      <img src="assets/images/noun_Backpack_65884.svg" alt="Shopping cart" width="30" height="30" />
+    </a>
+    <span id="cart-count" *ngIf="(cartCount | async) as count" [hidden]="count === 0">{{ count }}</span>
+  </div>
+</header>

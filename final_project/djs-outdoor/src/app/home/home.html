@@ -1,0 +1,61 @@
+<div class="hero">
+  <picture>
+    <source srcset="assets/images/banner.jpg" media="(min-width: 500px)" />
+    <img src="assets/images/banner-sm.jpg" alt="image of a high mountain lake" />
+  </picture>
+
+</div>
+
+<section class="mission">
+  <p>Let’s face it—we spend way too much time indoors, stuck in chairs and glued to screens. No wonder we feel off balance.</p>
+  <p style="text-align: left;"><i>It’s time to reconnect.</i></p>
+  <p style="text-align: center"><i>To breathe fresh air.</i></p>
+  <p style="text-align: right"><i>To sleep under the stars.</i></p>
+  <p>
+    At <strong>DJS Outdoor</strong>, we believe the cure starts outside. That’s why we’re on a mission to equip you with everything
+    you need to sleep comfortably in the wild — without breaking the bank. From tents to hammocks, backpacks to sleeping bags, we’ve got
+    your adventure covered.
+  </p>
+</section>
+
+<section class="products">
+  <h2>Top Products</h2>
+  <div class="product-search">
+    <input
+      type="text"
+      placeholder="Search products..."
+      #searchInput
+      (input)="onSearchChange(searchInput.value)"
+      class="search-input" />
+  </div>
+  <ul class="product-categories">
+    <li>
+      <a routerLink="/products/tents" class="category-card">
+        <img src="assets/images/tentCategory.jpg" alt="Tents category" />
+        <h3>Tents</h3>
+        <p>Explore our selection of quality tents</p>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/products/backpacks" class="category-card">
+        <img src="assets/images/backpackCategory.jpg" alt="Backpacks category" />
+        <h3>Backpacks</h3>
+        <p>Find the perfect backpack for your adventure</p>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/products/sleeping-bags" class="category-card">
+        <img src="assets/images/sleepingBagCategory.jpg" alt="Sleeping Bags category" />
+        <h3>Sleeping Bags</h3>
+        <p>Stay warm and comfortable</p>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/products/hammocks" class="category-card">
+        <img src="assets/images/hammockCategory.jpg" alt="Hammocks category" />
+        <h3>Hammocks</h3>
+        <p>Relax in style</p>
+      </a>
+    </li>
+  </ul>
+</section>

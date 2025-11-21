@@ -1,0 +1,11 @@
+<div id="alert-list">
+  <section *ngFor="let alert of alerts | async">
+    <p>{{ alert.message }}</p>
+    <input
+      type="button"
+      class="alert-button"
+      value="X"
+      (click)="closeAlert(alert.id)"
+    />
+  </section>
+</div>

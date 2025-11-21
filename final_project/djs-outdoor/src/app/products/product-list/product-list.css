@@ -1,0 +1,10 @@
+/* Product list styles inherited from global styles */
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #d32f2f;
+}
